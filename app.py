@@ -11,15 +11,24 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-* {
+.stApp, .stApp p, .stApp h1, .stApp h2, .stApp h3,
+.stApp label, .stApp button, .stApp input,
+.stApp textarea, .stApp [data-testid="stMarkdown"] {
     font-family: 'Montserrat', sans-serif !important;
 }
-
-.stApp {
-    background-color: #f5f7f3;
+/* Колір смужки прогресу */
+/* Пройдена частина */
+.stProgress [data-testid="stProgressBar"] > div {
+    background-color: #243b35 !important;
 }
+
+
+[data-testid="stSidebar"] {
+    background-color: #243b35 !important;
+}
+
 [data-testid="stSidebar"] * {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 .main-title {
     font-size: 38px;
@@ -152,11 +161,32 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown(
-    '<div class="subtitle">Твій путівник у світі контенту, реклами та блогінгу</div>',
+    '<div class="subtitle">Простими словами про блогінг, рекламу та співпрацю з брендами</div>',
     unsafe_allow_html=True
 )
 
-st.progress((selected + 1) / len(steps))
+progress = (selected + 1) / len(steps) * 100
+
+st.markdown(
+    f"""
+    <div style="
+        width: 100%;
+        height: 8px;
+        background-color: #e5efe7;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 10px 0;
+    ">
+        <div style="
+            width: {progress}%;
+            height: 100%;
+            background-color: #243b35;
+            border-radius: 10px;
+        "></div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 st.caption(f"РОЗДІЛ {selected + 1} ІЗ {len(steps)}")
 
 st.markdown(
@@ -211,3 +241,4 @@ with col3:
 st.caption(
     "Інформаційний гайд. Правові та податкові правила потрібно "
     "перевіряти за актуальним законодавством України.")
+
