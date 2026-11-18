@@ -134,7 +134,7 @@ with st.sidebar:
     selected = st.radio(
         "Обери розділ:",
         options=list(range(len(steps))),
-        format_func=lambda i: f"{steps[i]['emoji']}  {steps[i]['title']}",
+        format_func=lambda i: steps[i]['title'],
         key="current_step",
         label_visibility="collapsed"
     )
@@ -158,7 +158,7 @@ st.progress((selected + 1) / len(steps))
 st.caption(f"РОЗДІЛ {selected + 1} ІЗ {len(steps)}")
 
 st.markdown(
-    f'<div class="info-card"><h2>{current["emoji"]} {current["title"]}</h2>'
+   f'<div class="info-card"><h2>{current["title"]}</h2>'
     f'<p>{current["intro"]}</p></div>',
     unsafe_allow_html=True
 )
