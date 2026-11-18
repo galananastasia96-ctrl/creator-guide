@@ -2,22 +2,21 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Гайд Інфлюенсера",
-    page_icon="✨",
+    page_title="Гайд Інфлюенсера", 
     layout="wide"
 )
 
 # Оформлення сайту
-st.markdown("""<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+st.markdown("""
 <style>
-html, body, [class*="css"], button, input, textarea {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+* {
     font-family: 'Montserrat', sans-serif !important;
 }
+
 .stApp {
     background-color: #f5f7f3;
-}
-[data-testid="stSidebar"] {
-    background-color: #243b35;
 }
 [data-testid="stSidebar"] * {
     color: #ffffff;
@@ -130,7 +129,7 @@ def next_step():
 
 # Бокове меню
 with st.sidebar:
-    st.markdown("## ✨ Гайд Інфлюенсера")
+    st.markdown("##  Гайд Інфлюенсера")
     st.markdown("---")
     st.markdown("### ТВОЄ НАВЧАННЯ")
 
@@ -149,7 +148,7 @@ with st.sidebar:
 current = steps[selected]
 
 st.markdown(
-    '<div class="main-title">✨ Гайд Інфлюенсера</div>',
+    '<div class="main-title"> Гайд Інфлюенсера</div>',
     unsafe_allow_html=True
 )
 st.markdown(
@@ -175,7 +174,7 @@ for point in current["points"]:
     )
 
 st.markdown(
-    f'<div class="tip"><b>💡 {current["tip"]}</b></div>',
+    f'<div class="tip"><b>{current["tip"]}</b></div>',
     unsafe_allow_html=True
 )
 
