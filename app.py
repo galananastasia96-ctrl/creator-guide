@@ -8,8 +8,11 @@ st.set_page_config(
 )
 
 # Оформлення сайту
-st.markdown("""
+st.markdown("""<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+html, body, [class*="css"], button, input, textarea {
+    font-family: 'Montserrat', sans-serif !important;
+}
 .stApp {
     background-color: #f5f7f3;
 }
